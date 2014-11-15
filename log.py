@@ -34,8 +34,7 @@ class Log(object):
         self.repo.push('origin', self.branch)
 
     def read(self, from_date, to_date):
-        out = self.repo.log()
-        # TODO Get log, pass through template, filter, etc.
+        self.repo.log()
 
 
 
