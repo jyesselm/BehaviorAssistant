@@ -11,31 +11,35 @@ class LogEntry(object):
 
 class Log(object):
 
-    def __init__(self, repopath, branch, template, config):
-        self.repo = GitRepo.factory(repopath)
-        self.template = template
-        self.branch = branch
+    def __init__(self, config):
         self.config = config
+        self.repo = GitRepo.factory(self.config.path)
 
 
-    def _get_template(template):
+    def _get_template(command, template):
         if template is None:
-            return self.template
+            return self.config.get_command_template(command)
         else:
             return template
     
     def init(self):
         self.repo.init()
 
-    def commit(self, content_dict, template=None):
-        template = get_template(template)
-        self.repo.commit(m=template.fill(content_dict))
+    def commit(self, command, command_args, template=None):
+        """ Commits command and command_args in given template
+         if template is None, then the default config template
+         will be used. 
+         Returns if we need a push
+        """
+        template = get_template(comand, template)
+        self.repo.commit(m=tempate.fill(command_args))
+        return self.config.check_if_needs_push()
 
     def reset(self):
         self.repo.reset('HEAD~1', soft=True)
 
     def push(self):
-        self.repo.push('origin', self.branch)
+        self.repo.push('origin', self.config.branch)
 
     def read(self, since, until):
         log_entries = []
