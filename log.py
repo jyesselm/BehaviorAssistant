@@ -1,5 +1,5 @@
-from BehaviorAssistant.git import GitRepo
-import dateutil.parser.parse
+from git import GitRepo
+#import dateutil.parser.parse
 
 class LogEntry(object):
     def __init__(self, commit_id=None, author=None, datetime=None, content_dict=None, message=''):
@@ -54,8 +54,8 @@ class Log(object):
                 log_entry = LogEntry(commit_id=fields[1].strip())
             elif preamble == 'Author':
                 log_entry.author = fields[1].strip()
-            elif preamble == 'Date':
-                log_entry.datetime = dateutil.parser.parse(fields[1].strip())
+            #elif preamble == 'Date':
+            #    log_entry.datetime = dateutil.parser.parse(fields[1].strip())
             else:
                 if '[ba]' in line:
                     # This means it's ba markup
