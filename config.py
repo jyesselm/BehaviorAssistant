@@ -27,11 +27,11 @@ class ConfigFileParser(object):
 
 class Configurations(object):
 	def __init__(self):
-		self.options = self._get_default_options()
-		self.file_parser = ConfigFileParser()
+		self._options = self._get_default_options()
+		self._file_parser = ConfigFileParser()
 
 	def parse_file(self,file_path):
-		options = self.file_parser.parse(file_path)
+		options = self._file_parser.parse(file_path)
 		self.set_new_options(options)
 
 	def set_new_options(self,options):
@@ -39,7 +39,8 @@ class Configurations(object):
 			if k not in options:
 				print "WARNING Configurations::_set_new_options option",k,"not a valid option skipping..."
 				continue
-			self.options[k]=v
+			self._options[k]=v
+		self._set_attributes()
 
 	def _get_default_options(self):
 		options = {
@@ -50,6 +51,10 @@ class Configurations(object):
 		}
 
 		return options
+
+	def _set_attributes(self):
+		for k,v in self._options.iteritems():
+			self.__setattr__(k,v)
 
 
 

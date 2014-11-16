@@ -1,0 +1,2 @@
+git_repo = git_repo  
+program = git_repo/script.py

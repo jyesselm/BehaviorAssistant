@@ -9,7 +9,7 @@ def parse_args():
     group.add_argument('--message','-m',help='log message')
     group.add_argument('--message_file', '-mf', help='log message file')
 
-    parser.add_argument('-p', help='program', required=False)
+    parser.add_argument('--program','-p', help='program', required=False)
     parser.add_argument('-args', required=False)
     parser.add_argument('-files',required=False)
     args = parser.parse_args()
@@ -18,7 +18,6 @@ def parse_args():
 
 def parse_cli():
 	args = parse_args()
-	print args.message_file
 
 	return args
 
