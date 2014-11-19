@@ -1,5 +1,4 @@
 import sh
-
 class GitRepo(object):
     @staticmethod
     def factory(repopath):

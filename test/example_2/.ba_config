@@ -1,0 +1,17 @@
+[general]
+	git_repo = ./
+
+[command dummy_script.py]
+	opt1 = 0.1
+
+# These are inputs
+#[resource dummy_script.py]
+#	dummy_plot.pickle
+
+[template dummy_script.py]
+	command
+	command_args
+	show dummy_plot.pickle
+	message
+	author
+	
