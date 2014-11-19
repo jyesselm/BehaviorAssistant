@@ -1,0 +1,32 @@
+<<<<<<< HEAD
+git_repo = git_repo  
+program = git_repo/script.py
+=======
+[general]
+	git_repo = git_repo  
+
+[command script.py]
+	opt1 = 0.1
+
+[template script.py]
+	show out/fig.png
+	grid 2x2 out/*.png
+	stdout
+	stderr
+        gitdiff
+	gitcommit
+	gitbranch
+	git...
+	args
+	author
+	date
+	message
+
+
+Author: dfsdf
+Date: fadsfdas
+
+This is the message.
+[ba] show output/example_fig.png
+[ba] 
+>>>>>>> tsudev
