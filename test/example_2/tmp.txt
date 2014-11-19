@@ -1,0 +1,8 @@
+Second commit
+[ba] stdout:This is an stdout message: Argument is 2
+
+[ba] command_args:2
+[ba] command:./dummy_script.py
+[ba] stderr:This is an stderr message: Argument is 2
+
+[ba] resource_dir:.//balog/2014.11.19.10.20.32

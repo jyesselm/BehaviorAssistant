@@ -1,0 +1,5 @@
+* Provide a template instead of using the ba_config
+* If no message, pop up editor
+* Refactor template class
+* Add resource section to config, for script inputs
+* Have a document with the tags that we want in templates
